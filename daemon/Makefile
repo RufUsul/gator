@@ -6,8 +6,9 @@ OBJ_DIR     := ${CURDIR}/
 
 # Uncomment and define CROSS_COMPILE if it is not already defined
 # CROSS_COMPILE=/path/to/cross-compiler/aarch64-linux-gnu-
-CC = $(CROSS_COMPILE)gcc
-CXX = $(CROSS_COMPILE)g++
+# Keep predefined CC & CXX to preserve yocto compatibility
+CC := $(if $(CC),$(CC),$(CROSS_COMPILE)gcc)
+CXX := $(if $(CXX),$(CXX),$(CROSS_COMPILE)g++)
 
 # -g produces debugging information
 # -O3 maximum optimization
