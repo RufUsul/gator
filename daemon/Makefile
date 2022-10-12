@@ -4,11 +4,6 @@
 # Makefile for Arm Streamline - Gator Daemon
 OBJ_DIR     := ${CURDIR}/
 
-# Uncomment and define CROSS_COMPILE if it is not already defined
-# CROSS_COMPILE=/path/to/cross-compiler/aarch64-linux-gnu-
-CC = $(CROSS_COMPILE)gcc
-CXX = $(CROSS_COMPILE)g++
-
 # -g produces debugging information
 # -O3 maximum optimization
 # -O0 no optimization, used for debugging
@@ -26,8 +21,6 @@ ifeq ($(shell expr `$(CXX) -dumpversion | cut -f1 -d.` \>= 5),1)
 	CXXFLAGS += -fno-sized-deallocation
 endif
 
-# -s strips the binary of debug info
-LDFLAGS     += -s
 LDLIBS      += -lrt -lm -pthread
 TARGET      := $(OBJ_DIR)gatord
 ESCAPE_EXE  := $(OBJ_DIR)escape/escape
