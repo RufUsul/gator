@@ -27,7 +27,7 @@
 
 #include "mxml/mxml.h"
 
-#define PROTOCOL_VERSION 710
+#define PROTOCOL_VERSION 670
 // Differentiates development versions (timestamp) from release versions
 #define PROTOCOL_DEV 10000000
 
